@@ -16,7 +16,7 @@ module RubyLLM
       module_function
 
       def api_base(_config)
-        'https://api.anthropic.com'
+        config.anthropic_api_base || 'https://api.anthropic.com'
       end
 
       def headers(config)

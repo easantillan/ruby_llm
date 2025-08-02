@@ -16,7 +16,7 @@ module RubyLLM
       module_function
 
       def api_base(_config)
-        'https://generativelanguage.googleapis.com/v1beta'
+        config.gemini_api_base || 'https://generativelanguage.googleapis.com/v1beta'
       end
 
       def headers(config)

@@ -20,9 +20,15 @@ module RubyLLM
       end
 
       def headers(config)
-        {
+        headers = {
           'x-goog-api-key' => config.gemini_api_key
         }
+
+        if config.global_headers
+          headers.merge!(config.global_headers)
+        end
+
+        headers
       end
 
       def capabilities

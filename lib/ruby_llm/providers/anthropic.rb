@@ -20,10 +20,16 @@ module RubyLLM
       end
 
       def headers(config)
-        {
+        headers = {
           'x-api-key' => config.anthropic_api_key,
           'anthropic-version' => '2023-06-01'
         }
+
+        if config.global_headers
+          headers.merge!(config.global_headers)
+        end
+
+        headers
       end
 
       def capabilities

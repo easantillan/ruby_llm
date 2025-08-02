@@ -43,7 +43,8 @@ module RubyLLM
                   :logger,
                   :log_file,
                   :log_level,
-                  :log_assume_model_exists
+                  :log_assume_model_exists,
+                  :global_headers
 
     def initialize
       # Connection configuration
@@ -63,6 +64,9 @@ module RubyLLM
       @log_file = $stdout
       @log_level = ENV['RUBYLLM_DEBUG'] ? Logger::DEBUG : Logger::INFO
       @log_assume_model_exists = true
+
+      # Global headers
+      @global_headers = {}
     end
 
     def inspect
